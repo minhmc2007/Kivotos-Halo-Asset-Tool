@@ -15,7 +15,7 @@ This script is **NOT** designed to run on a standard Windows, macOS, or desktop 
 
 *   **Why?** The script uses hardcoded paths like `/sdcard/Android/data/com.nexon.bluearchive/...` which are protected by the Android operating system. Without root, these files are inaccessible.
 *   **Recommended Environments:**
-    *   **Termux with proot-distro:** This is the ideal way to run it. You must install a Linux distribution (like Ubuntu or Debian) inside Termux and run the script from within the proot environment.
+    *   **Termux with proot-distro:** This is the ideal way to run it. You must install a Linux distribution (like Ubuntu or Debian) inside Termux and run the script from within the proot environment to prevent UnityPy installation error.
         ```bash
         # Inside Termux
         pkg install proot-distro tsu -y
