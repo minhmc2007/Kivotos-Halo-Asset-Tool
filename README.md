@@ -18,10 +18,10 @@ This script is **NOT** designed to run on a standard Windows, macOS, or desktop 
     *   **Termux with proot-distro:** This is the ideal way to run it. You must install a Linux distribution (like Ubuntu or Debian) inside Termux and run the script from within the proot environment.
         ```bash
         # Inside Termux
-        pkg install proot-distro
+        pkg install proot-distro tsu -y
         proot-distro install ubuntu
-        proot-distro login ubuntu
-        # Now you are in a root-like environment where you can run the script
+        sudo proot-distro login ubuntu
+        # Now you are in a proot environment where you can run the script
         ```
     *   **Kali Nethunter:** A rooted environment provided by Nethunter will also work.
 *   **Alternative (Not Recommended):** You could manually copy the entire `Resource` folder from your phone to a PC and modify the paths at the top of the script, but the primary design is for on-device execution.
