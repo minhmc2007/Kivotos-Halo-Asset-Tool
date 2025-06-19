@@ -6,9 +6,12 @@ A complete, on-device solution for modding **Blue Archive** on Android. This too
 
 It features a hybrid architecture, using a Termux-based "Orchestrator" to handle high-privilege file operations and a `proot-distro` Linux container as a clean "Workshop" for processing game assets.
 
+I recommend you should use the `ba_asset_tool.py`, the `installer.sh` still kinda suck
+
 せんせい、今日も頑張ってください！ (Sensei, please do your best today!)
 
 ![Preview](header.jpg)
+![Preview2](shiroko_spr_2982197698258662178.png )
 
 ---
 
