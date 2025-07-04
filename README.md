@@ -2,6 +2,8 @@
 
 ![Preview](exam.png)
 
+## Windows version come soon (with graphical not command line)🗿
+
 A complete, on-device solution for modding **Blue Archive** on Android. This tool provides a powerful command-line interface to copy, extract, repack, and deploy Unity asset bundles directly on your phone.
 
 It features a hybrid architecture, using a Termux-based "Orchestrator" to handle high-privilege file operations and a `proot-distro` Linux container as a clean "Workshop" for processing game assets.
