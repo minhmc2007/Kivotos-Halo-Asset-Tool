@@ -2,108 +2,126 @@
 
 ![Preview](exam.png)
 
-## Windows version come soon (with graphical not command line)🗿
-
-A complete, on-device solution for modding **Blue Archive** on Android. This tool provides a powerful command-line interface to copy, extract, repack, and deploy Unity asset bundles directly on your phone.
-
-It features a hybrid architecture, using a Termux-based "Orchestrator" to handle high-privilege file operations and a `proot-distro` Linux container as a clean "Workshop" for processing game assets.
-
-I recommend you should use the `ba_asset_tool.py`, the `installer.sh` still kinda suck
-
-せんせい、今日も頑張ってください！ (Sensei, please do your best today!)
-
-![Preview](header.jpg)
-![Preview2](shiroko_spr_2982197698258662178.png )
+A flexible, cross-platform toolkit for extracting, repacking, and modding **Blue Archive** Unity asset bundles. Supports both Android (with advanced command-line tools for Termux) and Windows (with a full-featured graphical interface).
 
 ---
 
-## Features
+## 🚩 What is this?
 
-*   **End-to-End Workflow:** Supports the full modding cycle: `copy`, `extract`, `repack`, and `deploy`.
-*   **Automated Setup:** A single `install.sh` script prepares the entire complex environment for you.
-*   **Smart Permission Handling:** Automatically detects and uses `root (su)` or `Shizuku (rish)` to access protected game files.
-*   **Hybrid Architecture:**
-    *   **Orchestrator (in Termux):** Manages file operations in protected directories.
-    *   **Workshop (in Debian):** A clean environment for running asset processing tools.
-
-## Prerequisites
-
-This tool is designed to run exclusively on **Android**. You will need:
-1.  **Termux:** The primary terminal emulator for Android.
-2.  **High-Privilege Access:** Your device must have one of the following:
-    *   **Root Access:** The `su` binary must be available to Termux.
-    *   **Shizuku:** The Shizuku app must be installed and running.
-
-## Installation (Recommended for All Users)
-
-The entire setup process is automated. You only need to run one script.
-
-1.  **Download the Installer:**
-    Download the `install.sh` script to your Termux home directory (`~/`).
-
-2.  **Make it Executable:**
-    Open Termux and run this command to give the script permission to execute:
-    ```bash
-    chmod +x install.sh
-    ```
-
-3.  **Run the Installer:**
-    Execute the script. It will handle everything else.
-    ```bash
-    ./install.sh
-    ```
-
-**What the installer does:**
-*   Creates the main `kivotos_tool.py` script for you.
-*   Installs and configures `proot-distro` with a Debian container.
-*   Installs `ubt`, `UnityPy`, `Pillow`, and other dependencies inside the Debian container.
-*   Checks for and correctly installs `rish` if you are using Shizuku.
-
-Once it's finished, you are ready to start modding with the `kivotos_tool.py` script.
-
-## The Standard Modding Workflow (`kivotos_tool.py`)
-
-The `kivotos_tool.py` script, created by the installer, provides a straightforward, step-by-step process. All commands are run from the main Termux shell.
-
-1.  **`copy <search_term> <folder>`:** Copies bundles from the game to your workspace.
-2.  **`process extract <folder>`:** Extracts the copied bundles.
-3.  **Edit Your Files:** Manually modify the extracted assets in `/sdcard/BA_Workspace/`.
-4.  **`process repack <subfolder> <new_name.bundle>`:** Repacks your modified folder into a new bundle.
-5.  **`deploy <mod_path> <original_name>`:** Deploys your modded bundle back into the game.
+Kivotos Halo Asset Tool is a feature-rich solution for Blue Archive asset modding:
+- **On Android**: Automates the complex process of copying, extracting, repacking, and deploying Unity asset bundles, even into protected game storage, using Termux and a Linux container.
+- **On Windows**: Provides a powerful and user-friendly graphical application to extract and repack Unity asset bundles with just a few clicks.
 
 ---
 
-## 🧑‍🔬 Advanced Alternative (For Nethunter / Pro Users)
+## 🖥️ Windows GUI Edition
 
-For professional users or those running a full-featured root environment like **Kali Nethunter**, a more powerful, all-in-one script is available: `ba_asset_tool.py`.
+A native Windows graphical interface is included:  
+**`ba_asset_tool_gui.py`** (Tkinter-based GUI, requires Python 3, UnityPy, and Pillow).
 
-This version is not created by the installer and must be downloaded separately. It is designed to be run **entirely within a single, root-privileged Linux environment** (like a Nethunter chroot or a `proot-distro` with `tsu`/`sudo`).
+### Features
+- Select bundles and output folders with file dialogs
+- One-click extraction and repacking of Unity asset bundles
+- User-friendly progress and error messages
+- Built-in disclaimer and safety checks
+- No command line required
 
-### Why use the Advanced Tool?
-*   **Powerful Interactive Search:** Features an advanced menu for finding bundles. It performs a "Smart Scan" on startup to find character sprites, allows live filtering, and supports a "Broad Search" to discover new bundles on the fly.
-*   **All-in-One Operation:** Extraction and repacking are handled within a single script, without needing to switch between a Termux orchestrator and a Debian worker.
-*   **Direct Control:** Offers more direct control over the extraction and repacking process for users who are comfortable managing their own environment.
+### Quick Start (Windows GUI)
 
-### Who Should Use This?
-*   Users with a **Kali Nethunter** chroot.
-*   Advanced users who run their `proot-distro` session with root privileges (e.g., using `tsu` or `sudo`).
-*   Users who prefer an interactive menu over a step-by-step command workflow.
+1. **Requirements**:
+    - Python 3.8+ for Windows ([download Python](https://www.python.org/downloads/windows/))
+    - Dependencies: `pip install UnityPy Pillow`
 
-### Setup for the Advanced Tool
-1.  **Ensure a Root Environment:** You must be inside a shell with root access (`whoami` should return `root`).
-2.  **Install Dependencies:**
-    ```bash
-    pip install UnityPy Pillow
-    ```
-3.  **Download and Run:**
-    Download the `ba_asset_tool.py` script and run it directly.
-    ```bash
-    python ba_asset_tool.py extract
-    ```
+2. **Run the GUI**:
+    - Download or clone this repository
+    - Double-click `ba_asset_tool_gui.py`  
+      _or_  
+      Run in terminal:
+      ```bash
+      python ba_asset_tool_gui.py
+      ```
 
-**Note:** The standard `kivotos_tool.py` created by the installer is recommended for most users as it handles the complex permission bridging automatically. The advanced `ba_asset_tool.py` offers more power at the cost of requiring a more complex initial setup.
+3. **Usage**:
+    - Follow the graphical interface to select files, extract assets, edit, and repack.
+
+> **Note:** This GUI is currently Windows-only. Linux support is planned but not yet implemented.
 
 ---
 
-## Disclaimer
-This is a third-party tool created for educational and personal use. Modifying game files can be against the game's Terms of Service and may lead to unforeseen consequences, including account suspension. Use this tool responsibly and at your own risk. The developer is not responsible for any issues that may arise from its use.
+## 📱 Android Command-line Edition
+
+A powerful, automated on-device solution for modding **Blue Archive** on Android, using Termux and a Debian proot-distro container.
+
+### Features
+- End-to-end workflow: `copy`, `extract`, `repack`, `deploy`
+- Automated setup with a single `install.sh` script
+- Smart privilege handling (supports both `su` root and Shizuku)
+- Hybrid architecture (Termux "Orchestrator" + Debian "Workshop")
+
+### Prerequisites
+
+- **Termux** app installed from F-Droid or Github
+- Device with **root** or **Shizuku** (for protected file access)
+
+### Quick Start (Android CLI)
+
+1. **Download the Installer**  
+   Save `install.sh` to your Termux home (`~/`).
+
+2. **Make Executable**  
+   ```bash
+   chmod +x install.sh
+   ```
+
+3. **Run the Installer**  
+   ```bash
+   ./install.sh
+   ```
+
+   This will install everything and create `kivotos_tool.py`.
+
+4. **Modding Workflow (`kivotos_tool.py`)**  
+   - `copy <search_term> <folder>`: Copy bundles from the game to your workspace.
+   - `process extract <folder>`: Extract copied bundles.
+   - Edit your assets as needed.
+   - `process repack <subfolder> <new_name.bundle>`: Repack to a new bundle.
+   - `deploy <mod_path> <original_name>`: Deploy modded bundle back into the game.
+
+---
+
+## ⚡ Advanced Tool for Linux/Power Users
+
+**`ba_asset_tool.py`**: For use in a root Linux environment (such as Kali NetHunter, root proot-distro, or WSL with access to game files).
+
+- Combines extraction and repacking in a single interactive CLI.
+- Features advanced search, "Smart Scan", live filtering, and more.
+- Suitable for those who want low-level control.
+
+### Usage
+- Ensure Python 3.8+, `UnityPy`, `Pillow` installed.
+- Run:
+  ```bash
+  python ba_asset_tool.py extract
+  ```
+  or follow CLI prompts for other operations.
+
+---
+
+## 📝 Disclaimer
+
+This is a third-party educational tool. Modifying game files can violate Blue Archive's Terms of Service and may result in penalties, including account suspension. Use at your own risk. The developer is not responsible for any consequences of use.
+
+---
+
+## 📂 License
+
+See [LICENSE](LICENSE) for details.
+
+---
+
+## 💡 More
+
+- Windows GUI: `ba_asset_tool_gui.py`
+- Android CLI: `kivotos_tool.py` (via installer)
+- Advanced CLI: `ba_asset_tool.py`
+- For updates, issues, and more, see the [GitHub repo](https://github.com/minhmc2007/Kivotos-Halo-Asset-Tool).
