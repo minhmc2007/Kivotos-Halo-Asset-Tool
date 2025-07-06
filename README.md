@@ -6,6 +6,8 @@ A flexible, cross-platform toolkit for extracting, repacking, and modding **Blue
 
 ---
 
+## WARNING ⚠ The GUI script is not tested due to Blue Archive on steam not available in my country 😭, Please test this tool carefully or send my your game file, huge thank 👍
+
 ## 🚩 What is this?
 
 Kivotos Halo Asset Tool is a feature-rich solution for Blue Archive asset modding:
