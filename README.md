@@ -4,6 +4,8 @@
 
 A flexible, cross-platform toolkit for extracting, repacking, and modding **Blue Archive** Unity asset bundles. Supports both Android (with advanced command-line tools for Termux) and Windows (with a full-featured graphical interface).
 
+Kivotos Halo Asset Studio come soon, design to run as an android app 🫠
+
 ---
 
 ## WARNING ⚠ The GUI script is not tested due to Blue Archive on steam not available in my country 😭, Please test this tool carefully or send me your game file, huge thank 👍
